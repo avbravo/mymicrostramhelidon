@@ -7,7 +7,7 @@ Sample Helidon MP project that includes multiple REST operations.
 With JDK11+
 ```bash
 mvn package
-java -jar target/helidon-quickstart-mp.jar
+java -jar target/mymicrostramhelidon.jar
 ```
 
 ## Exercise the application
@@ -173,4 +173,28 @@ See the start script help:
 
 ```
 docker run --rm helidon-quickstart-mp-jri:latest --help
+```
+
+
+
+To launch the test page, open your browser at the following URL
+
+```shell
+http://localhost:8080/hello  
+```
+To execute the tests:
+
+```shell
+curl --location --request POST 'http://localhost:8080/products/' \
+--header 'Content-Type: application/json' \
+--data-raw '{"id": 1, "name": "banana", "description": "a fruit", "rating": 5}'
+
+curl --location --request POST 'http://localhost:8080/products/' \
+--header 'Content-Type: application/json' \
+--data-raw '{"id": 2, "name": "watermelon", "description": "watermelon sugar ahh", "rating": 4}'
+
+curl --location --request GET 'http://localhost:8080/products/'
+
+curl --location --request GET 'http://localhost:8080/products/1'
+
 ```

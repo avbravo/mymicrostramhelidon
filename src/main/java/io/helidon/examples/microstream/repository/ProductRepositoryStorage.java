@@ -1,5 +1,5 @@
 
-package io.helidon.examples.microstream.controller;
+package io.helidon.examples.microstream.repository;
 
 /*-
  * #%L
@@ -21,6 +21,8 @@ package io.helidon.examples.microstream.controller;
  * #L%
  */
 
+import io.helidon.examples.microstream.storage.Inventory;
+import io.helidon.examples.microstream.model.Product;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.logging.Logger;

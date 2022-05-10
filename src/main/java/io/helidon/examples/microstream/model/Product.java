@@ -1,5 +1,5 @@
 
-package io.helidon.examples.microstream.controller;
+package io.helidon.examples.microstream.model;
 
 /*-
  * #%L

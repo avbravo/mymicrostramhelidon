@@ -1,5 +1,7 @@
+package io.helidon.examples.microstream.storage;
 
-package io.helidon.examples.microstream.controller;
+
+
 
 /*-
  * #%L
@@ -21,6 +23,7 @@ package io.helidon.examples.microstream.controller;
  * #L%
  */
 
+import io.helidon.examples.microstream.model.Product;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;

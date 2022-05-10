@@ -21,6 +21,8 @@ package io.helidon.examples.microstream.controller;
  * #L%
  */
 
+import io.helidon.examples.microstream.repository.ProductRepository;
+import io.helidon.examples.microstream.model.Product;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
