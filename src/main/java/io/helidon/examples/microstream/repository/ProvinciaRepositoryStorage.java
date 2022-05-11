@@ -21,8 +21,8 @@ package io.helidon.examples.microstream.repository;
  * #L%
  */
 
-import io.helidon.examples.microstream.model.Product;
-import io.helidon.examples.microstream.storage.ProductsStorage;
+import io.helidon.examples.microstream.model.Provincia;
+import io.helidon.examples.microstream.storage.ProvinciaStorage;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -34,38 +34,38 @@ import one.microstream.integrations.cdi.types.Store;
 
 
 @ApplicationScoped
-public class ProductRepositoryStorage implements ProductRepository
+public class ProvinciaRepositoryStorage implements ProvinciaRepository
 {
-	private static final Logger LOGGER = Logger.getLogger(ProductRepositoryStorage.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ProvinciaRepositoryStorage.class.getName());
 	
 	@Inject
-	private ProductsStorage           inventory;
+	private ProvinciaStorage   storage;
 	
 	@Override
-	public Collection<Product> getAll()
+	public Collection<Provincia> getAll()
 	{
-		return this.inventory.getProducts();
+		return this.storage.getProvincias();
 	}
 	
 	@Override
 	@Store
-	public Product save(final Product item)
+	public Provincia save(final Provincia item)
 	{
-		this.inventory.add(item);
+		this.storage.add(item);
 		return item;
 	}
 	
 	@Override
-	public Optional<Product> findById(final long id)
+	public Optional<Provincia> findById(final long id)
 	{
 		LOGGER.info("Finding the item by id: " + id);
-		return this.inventory.findById(id);
+		return this.storage.findById(id);
 	}
 	
 	@Override
 	@Store
 	public void deleteById(final long id)
 	{
-		this.inventory.deleteById(id);
+		this.storage.deleteById(id);
 	}
 }

@@ -175,6 +175,9 @@ See the start script help:
 docker run --rm helidon-quickstart-mp-jri:latest --help
 ```
 
+curl --location --request POST 'http://localhost:8080/personas/' \
+--header 'Content-Type: application/json' \
+--data-raw '{"id": 22, "name": "ana"}'
 
 
 To launch the test page, open your browser at the following URL
@@ -184,6 +187,8 @@ http://localhost:8080/hello
 ```
 To execute the tests:
 
+
+## Products
 ```shell
 curl --location --request POST 'http://localhost:8080/products/' \
 --header 'Content-Type: application/json' \
@@ -197,4 +202,26 @@ curl --location --request GET 'http://localhost:8080/products/'
 
 curl --location --request GET 'http://localhost:8080/products/1'
 
+```
+
+## Personas
+```
+curl --location --request POST 'http://localhost:8080/personas/' --header 'Content-Type: application/json' --data-raw '{"id": 1, "name": "aris"}'
+
+curl --location --request POST 'http://localhost:8080/personas/' --header 'Content-Type: application/json' --data-raw '{"id": 2, "name": "ana"}'
+
+curl --location --request GET 'http://localhost:8080/personas/'
+
+curl --location --request GET 'http://localhost:8080/personas/1'
+```
+
+## Provincias
+```
+curl --location --request POST 'http://localhost:8080/provincias/' --header 'Content-Type: application/json' --data-raw '{"id": 1, "name": "Los Santos"}'
+
+curl --location --request POST 'http://localhost:8080/provincias/' --header 'Content-Type: application/json' --data-raw '{"id": 2, "name": "Herrera"}'
+
+curl --location --request GET 'http://localhost:8080/provincias/'
+
+curl --location --request GET 'http://localhost:8080/provincias/1'
 ```
