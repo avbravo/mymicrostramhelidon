@@ -85,7 +85,7 @@ public class HabitantesController {
 	@APIResponse(responseCode = "500", description = "Server unavailable")
 	@Tag(name = "BETA", description = "This API is currently in beta state")
 	public Response update(
-		@RequestBody(description = "Update  a new habitante.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Habitante.class))) final Habitante habitante)
+		@RequestBody(description = "Update  a  habitante.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Habitante.class))) final Habitante habitante)
 	{
 		return Response.status(Response.Status.CREATED).entity(this.repository.update(habitante)).build();
 	}

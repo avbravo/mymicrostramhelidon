@@ -13,6 +13,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -76,6 +77,16 @@ public class ProvinciasController {
 		@RequestBody(description = "Create a new provincia.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Provincia.class))) final Provincia provincia)
 	{
 		return Response.status(Response.Status.CREATED).entity(this.repository.save(provincia)).build();
+	}
+	@PUT
+	@Operation(summary = "Update a provincia", description = "Update a provincia")
+	@APIResponse(responseCode = "201", description = "When update an provincia")
+	@APIResponse(responseCode = "500", description = "Server unavailable")
+	@Tag(name = "BETA", description = "This API is currently in beta state")
+	public Response update(
+		@RequestBody(description = "Update a  provincia.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Provincia.class))) final Provincia provincia)
+	{
+		return Response.status(Response.Status.CREATED).entity(this.repository.update(provincia)).build();
 	}
 	
 	@DELETE

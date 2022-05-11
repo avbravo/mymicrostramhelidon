@@ -45,6 +45,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collection;
+import javax.ws.rs.PUT;
 
 
 @RequestScoped
@@ -92,6 +93,16 @@ public class ProductController
 		@RequestBody(description = "Create a new product.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Product.class))) final Product product)
 	{
 		return Response.status(Response.Status.CREATED).entity(this.repository.save(product)).build();
+	}
+	@PUT
+	@Operation(summary = "Update a product", description = "Update a product")
+	@APIResponse(responseCode = "201", description = "When update an product")
+	@APIResponse(responseCode = "500", description = "Server unavailable")
+	@Tag(name = "BETA", description = "This API is currently in beta state")
+	public Response update(
+		@RequestBody(description = "Update a  product.", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Product.class))) final Product product)
+	{
+		return Response.status(Response.Status.CREATED).entity(this.repository.update(product)).build();
 	}
 	
 	@DELETE
