@@ -5,7 +5,6 @@
 package io.helidon.examples.microstream.repository;
 
 import io.helidon.examples.microstream.model.Persona;
-import io.helidon.examples.microstream.storage.ManagedStorage;
 import io.helidon.examples.microstream.storage.PersonaStorage;
 import java.util.Collection;
 import java.util.Optional;

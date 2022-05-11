@@ -5,6 +5,7 @@
 package io.helidon.examples.microstream.repository;
 
 import io.helidon.examples.microstream.model.Persona;
+import io.helidon.examples.microstream.model.Habitante;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -12,11 +13,11 @@ import java.util.Optional;
  *
  * @author avbravo
  */
-public interface PersonaRepository {
+public interface HabitanteRepository {
     
-    Collection<Persona> getAll();
-    Persona save(Persona persona);
-    Optional<Persona> findById(long id)  ;
+    Collection<Habitante> getAll();
+    Habitante save(Habitante habitante);
+    Optional<Habitante> findById(long id)  ;
     void deleteById(long id);
 
 }

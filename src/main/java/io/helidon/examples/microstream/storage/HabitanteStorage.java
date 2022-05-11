@@ -4,7 +4,7 @@
  */
 package io.helidon.examples.microstream.storage;
 
-import io.helidon.examples.microstream.model.Provincia;
+import io.helidon.examples.microstream.model.Habitante;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -18,31 +18,31 @@ import javax.enterprise.context.ApplicationScoped;
  * @author avbravo
  */
 @ApplicationScoped
-public class ProvinciaStorage extends StorageManager{
+public class HabitanteStorage extends StorageManager{
 
-      private final Set<Provincia> provincias = new HashSet<>();
+      private final Set<Habitante> habitantes = new HashSet<>();
       
-       public void add(final Provincia provincia) {
-        Objects.requireNonNull(provincia, "provincia is required");
-        this.provincias.add(provincia);
+       public void add(final Habitante habitante) {
+        Objects.requireNonNull(habitante, "habitante is required");
+        this.habitantes.add(habitante);
     }
 
-    public Set<Provincia> getProvincias() {
-        return Collections.unmodifiableSet(this.provincias);
+    public Set<Habitante> getHabitantes() {
+        return Collections.unmodifiableSet(this.habitantes);
     }
 
 
-    public Optional<Provincia> findById(final long id) {
-        return this.provincias.stream().filter(this.isIdEquals(id)).limit(1).findFirst();
+    public Optional<Habitante> findById(final long id) {
+        return this.habitantes.stream().filter(this.isIdEquals(id)).limit(1).findFirst();
     }
 
     public void deleteById(final long id) {
-        this.provincias.removeIf(this.isIdEquals(id));
+        this.habitantes.removeIf(this.isIdEquals(id));
 
     }
 
  
-     private Predicate<Provincia> isIdEquals(final long id) {
+     private Predicate<Habitante> isIdEquals(final long id) {
         return p -> p.getId() == id;
     }
 
@@ -54,20 +54,20 @@ public class ProvinciaStorage extends StorageManager{
         if (o == null || this.getClass() != o.getClass()) {
             return false;
         }
-        final ProvinciaStorage inventory = (ProvinciaStorage) o;
-        return Objects.equals(this.provincias, inventory.provincias);
+        final HabitanteStorage inventory = (HabitanteStorage) o;
+        return Objects.equals(this.habitantes, inventory.habitantes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.provincias);
+        return Objects.hashCode(this.habitantes);
     }
 
     @Override
     public String toString() {
-        return "Provincia{"
-                + "provincias="
-                + this.provincias
+        return "Habitante{"
+                + "habitantes="
+                + this.habitantes
                 + '}';
     }
 

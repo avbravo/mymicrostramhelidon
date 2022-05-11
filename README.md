@@ -206,7 +206,7 @@ curl --location --request GET 'http://localhost:8080/products/1'
 
 ## Personas
 ```
-curl --location --request POST 'http://localhost:8080/personas/' --header 'Content-Type: application/json' --data-raw '{"id": 1, "name": "aris"}'
+curl --location --request POST 'http://localhost:8080/personas/' --header 'Content-Type: application/json' --data-raw '{"id": 1, "name": "maria"}'
 
 curl --location --request POST 'http://localhost:8080/personas/' --header 'Content-Type: application/json' --data-raw '{"id": 2, "name": "ana"}'
 
@@ -224,4 +224,19 @@ curl --location --request POST 'http://localhost:8080/provincias/' --header 'Con
 curl --location --request GET 'http://localhost:8080/provincias/'
 
 curl --location --request GET 'http://localhost:8080/provincias/1'
+```
+
+
+## Habitante
+```
+curl --location --request POST 'http://localhost:8080/habitantes/' --header 'Content-Type: application/json' --data-raw '{"id": 1, "name": "Santa Ana", 
+"provincia":{"id": 1, "name": "Los Santos"},
+"personas":[{"id": 1, "name": "maria"}, {"id": 2, "name": "ana"}]
+}'
+
+curl --location --request POST 'http://localhost:8080/habitantes/' --header 'Content-Type: application/json' --data-raw '{"id": 2, "name": "ana"}'
+
+curl --location --request GET 'http://localhost:8080/personas/'
+
+curl --location --request GET 'http://localhost:8080/personas/1'
 ```

@@ -30,7 +30,7 @@ import java.util.function.Predicate;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class ProductsStorage extends ManagedStorage{
+public class ProductsStorage extends StorageManager{
 
     private final Set<Product> products = new HashSet<>();
    

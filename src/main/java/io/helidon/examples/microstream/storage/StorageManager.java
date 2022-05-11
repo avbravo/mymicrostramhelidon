@@ -19,20 +19,11 @@ package io.helidon.examples.microstream.storage;
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  * #L%
  */
-import io.helidon.examples.microstream.model.Persona;
-import io.helidon.examples.microstream.model.Product;
-import io.helidon.examples.microstream.model.Provincia;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.function.Predicate;
 
 import one.microstream.integrations.cdi.types.Storage;
 
 @Storage
-public class ManagedStorage {
+public class StorageManager {
 
     
     
