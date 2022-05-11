@@ -17,6 +17,7 @@ public interface HabitanteRepository {
     
     Collection<Habitante> getAll();
     Habitante save(Habitante habitante);
+    Habitante update(Habitante habitante);
     Optional<Habitante> findById(long id)  ;
     void deleteById(long id);
 

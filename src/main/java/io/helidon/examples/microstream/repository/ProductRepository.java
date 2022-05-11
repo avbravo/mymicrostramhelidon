@@ -31,6 +31,7 @@ public interface ProductRepository
 	Collection<Product> getAll();
 	
 	Product save(Product item);
+	Product update(Product item);
 	
 	Optional<Product> findById(long id);
 	

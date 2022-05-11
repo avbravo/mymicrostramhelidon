@@ -1,4 +1,4 @@
-package io.helidon.examples.microstream.storage;
+package io.helidon.examples.microstream.storage.configuration;
 
 /*-
  * #%L

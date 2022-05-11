@@ -4,6 +4,8 @@
  */
 package io.helidon.examples.microstream.storage;
 
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
+import io.helidon.examples.microstream.model.Provincia;
 import io.helidon.examples.microstream.model.Provincia;
 import java.util.Collections;
 import java.util.HashSet;
@@ -24,6 +26,16 @@ public class ProvinciaStorage extends StorageManager{
       
        public void add(final Provincia provincia) {
         Objects.requireNonNull(provincia, "provincia is required");
+        this.provincias.add(provincia);
+    }
+       
+         /**
+        * Para actualizar un objeto hay que removerlo y volverlo a agregar
+        * @param habitante 
+        */
+       public void update(final Provincia provincia) {
+        Objects.requireNonNull(provincia, "provincia is required");
+           deleteById(provincia.getId());           
         this.provincias.add(provincia);
     }
 

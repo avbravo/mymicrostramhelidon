@@ -16,6 +16,7 @@ public interface PersonaRepository {
     
     Collection<Persona> getAll();
     Persona save(Persona persona);
+    Persona update(Persona persona);
     Optional<Persona> findById(long id)  ;
     void deleteById(long id);
 

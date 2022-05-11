@@ -54,6 +54,13 @@ public class ProvinciaRepositoryStorage implements ProvinciaRepository
 		this.storage.add(item);
 		return item;
 	}
+	@Override
+	@Store
+	public Provincia update(final Provincia item)
+	{
+		this.storage.add(item);
+		return item;
+	}
 	
 	@Override
 	public Optional<Provincia> findById(final long id)

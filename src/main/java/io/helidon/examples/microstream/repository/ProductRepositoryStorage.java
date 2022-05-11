@@ -54,6 +54,13 @@ public class ProductRepositoryStorage implements ProductRepository
 		this.inventory.add(item);
 		return item;
 	}
+	@Override
+	@Store
+	public Product update(final Product item)
+	{
+		this.inventory.add(item);
+		return item;
+	}
 	
 	@Override
 	public Optional<Product> findById(final long id)

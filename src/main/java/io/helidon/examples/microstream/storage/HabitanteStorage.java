@@ -4,6 +4,7 @@
  */
 package io.helidon.examples.microstream.storage;
 
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
 import io.helidon.examples.microstream.model.Habitante;
 import java.util.Collections;
 import java.util.HashSet;
@@ -24,6 +25,16 @@ public class HabitanteStorage extends StorageManager{
       
        public void add(final Habitante habitante) {
         Objects.requireNonNull(habitante, "habitante is required");
+        this.habitantes.add(habitante);
+    }
+       
+       /**
+        * Para actualizar un objeto hay que removerlo y volverlo a agregar
+        * @param habitante 
+        */
+       public void update(final Habitante habitante) {
+        Objects.requireNonNull(habitante, "habitante is required");
+           deleteById(habitante.getId());           
         this.habitantes.add(habitante);
     }
 

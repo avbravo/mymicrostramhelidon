@@ -1,6 +1,8 @@
 package io.helidon.examples.microstream.storage;
 
 
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
+import io.helidon.examples.microstream.model.Habitante;
 import io.helidon.examples.microstream.model.Persona;
 import java.util.Collections;
 import java.util.HashSet;
@@ -24,6 +26,16 @@ public class PersonaStorage extends StorageManager{
         this.personas.add(persona);
     }
 
+      /**
+        * Para actualizar un objeto hay que removerlo y volverlo a agregar
+        * @param habitante 
+        */
+       public void update(final Persona persona) {
+        Objects.requireNonNull(persona, "persona is required");
+           deleteById(persona.getId());           
+        this.personas.add(persona);
+    }
+    
     public Set<Persona> getPersonas() {
         return Collections.unmodifiableSet(this.personas);
     }

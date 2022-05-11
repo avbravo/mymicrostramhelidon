@@ -54,6 +54,13 @@ public class HabitanteRepositoryStorage implements HabitanteRepository
 		this.storage.add(item);
 		return item;
 	}
+	@Override
+	@Store
+	public Habitante update(final Habitante item)
+	{
+		this.storage.update(item);
+		return item;
+	}
 	
 	@Override
 	public Optional<Habitante> findById(final long id)

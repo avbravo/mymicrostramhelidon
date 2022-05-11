@@ -17,6 +17,7 @@ public interface ProvinciaRepository {
     
     Collection<Provincia> getAll();
     Provincia save(Provincia provincia);
+    Provincia update(Provincia provincia);
     Optional<Provincia> findById(long id)  ;
     void deleteById(long id);
 

@@ -19,6 +19,8 @@ package io.helidon.examples.microstream.storage;
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  * #L%
  */
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
+import io.helidon.examples.microstream.model.Product;
 import io.helidon.examples.microstream.model.Product;
 import java.util.Collections;
 import java.util.HashSet;
@@ -36,6 +38,16 @@ public class ProductsStorage extends StorageManager{
    
     public void add(final Product product) {
         Objects.requireNonNull(product, "product is required");
+        this.products.add(product);
+    }
+    
+      /**
+        * Para actualizar un objeto hay que removerlo y volverlo a agregar
+        * @param habitante 
+        */
+       public void update(final Product product) {
+        Objects.requireNonNull(product, "product is required");
+           deleteById(product.getId());           
         this.products.add(product);
     }
 

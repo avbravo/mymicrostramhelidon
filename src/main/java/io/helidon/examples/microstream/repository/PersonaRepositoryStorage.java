@@ -36,6 +36,13 @@ private static final Logger LOGGER = Logger.getLogger(PersonaRepositoryStorage.c
 		this.personaStorage.add(item);
 		return item;
 	}
+	@Override
+	@Store
+	public Persona update(final Persona item)
+	{
+		this.personaStorage.add(item);
+		return item;
+	}
 	
 	@Override
 	public Optional<Persona> findById(final long id)
