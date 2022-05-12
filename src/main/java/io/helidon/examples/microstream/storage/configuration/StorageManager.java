@@ -41,14 +41,15 @@ public class StorageManager {
         Objects.requireNonNull(product, "product is required");
         this.products.add(product);
     }
-    
-      /**
-        * Para actualizar un objeto hay que removerlo y volverlo a agregar
-        * @param habitante 
-        */
-       public void update(final Product product) {
+
+    /**
+     * Para actualizar un objeto hay que removerlo y volverlo a agregar
+     *
+     * @param habitante
+     */
+    public void update(final Product product) {
         Objects.requireNonNull(product, "product is required");
-           deleteById(product.getId());           
+        deleteById(product.getId());
         this.products.add(product);
     }
 
@@ -94,28 +95,27 @@ public class StorageManager {
                 + '}';
     }
 
-   
-     private final Set<Provincia> provincias = new HashSet<>();
-      
-       public void add(final Provincia provincia) {
+    private final Set<Provincia> provincias = new HashSet<>();
+
+    public void add(final Provincia provincia) {
         Objects.requireNonNull(provincia, "provincia is required");
         this.provincias.add(provincia);
     }
-       
-         /**
-        * Para actualizar un objeto hay que removerlo y volverlo a agregar
-        * @param habitante 
-        */
-       public void update(final Provincia provincia) {
+
+    /**
+     * Para actualizar un objeto hay que removerlo y volverlo a agregar
+     *
+     * @param habitante
+     */
+    public void update(final Provincia provincia) {
         Objects.requireNonNull(provincia, "provincia is required");
-           deleteById(provincia.getId());           
+        deleteById(provincia.getId());
         this.provincias.add(provincia);
     }
 
     public Set<Provincia> getProvincias() {
         return Collections.unmodifiableSet(this.provincias);
     }
-
 
     public Optional<Provincia> findByIdProvincia(final long id) {
         return this.provincias.stream().filter(this.isIdEqualsProvincia(id)).limit(1).findFirst();
@@ -126,39 +126,35 @@ public class StorageManager {
 
     }
 
- 
-     private Predicate<Provincia> isIdEqualsProvincia(final long id) {
+    private Predicate<Provincia> isIdEqualsProvincia(final long id) {
         return p -> p.getId() == id;
     }
 
-   
-
-/***
- * ------------------
- */
-     
-
+    /**
+     * *
+     * ------------------
+     */
     private final Set<Habitante> habitantes = new HashSet<>();
-      
-       public void add(final Habitante habitante) {
+
+    public void add(final Habitante habitante) {
         Objects.requireNonNull(habitante, "habitante is required");
         this.habitantes.add(habitante);
     }
-       
-       /**
-        * Para actualizar un objeto hay que removerlo y volverlo a agregar
-        * @param habitante 
-        */
-       public void update(final Habitante habitante) {
+
+    /**
+     * Para actualizar un objeto hay que removerlo y volverlo a agregar
+     *
+     * @param habitante
+     */
+    public void update(final Habitante habitante) {
         Objects.requireNonNull(habitante, "habitante is required");
-           deleteByIdHabitante(habitante.getId());           
+        deleteByIdHabitante(habitante.getId());
         this.habitantes.add(habitante);
     }
 
     public Set<Habitante> getHabitantes() {
         return Collections.unmodifiableSet(this.habitantes);
     }
-
 
     public Optional<Habitante> findByIdHabitante(final long id) {
         return this.habitantes.stream().filter(this.isIdEqualsHabitante(id)).limit(1).findFirst();
@@ -169,46 +165,50 @@ public class StorageManager {
 
     }
 
- 
-     private Predicate<Habitante> isIdEqualsHabitante(final long id) {
+    private Predicate<Habitante> isIdEqualsHabitante(final long id) {
         return p -> p.getId() == id;
     }
 
-      /**
+    /**
      * Persona
      */
-     final Set<Persona> personas = new HashSet<>();
-    
-public   void add(final Persona persona) {
+    final Set<Persona> personas = new HashSet<>();
+
+    public void add(final Persona persona) {
         Objects.requireNonNull(persona, "persona is required");
+        for(Integer i=2;i<=50000000;i++){
+           Persona persona1 = new Persona(i.longValue(), persona.getName());
+                    this.personas.add(persona1);
+        }
+
+    }
+
+    /**
+     * Para actualizar un objeto hay que removerlo y volverlo a agregar
+     *
+     * @param habitante
+     */
+    public void update(final Persona persona) {
+        Objects.requireNonNull(persona, "persona is required");
+        deleteByIdPersona(persona.getId());
         this.personas.add(persona);
     }
 
- /**
-        * Para actualizar un objeto hay que removerlo y volverlo a agregar
-        * @param habitante 
-        */
-       public   void update(final Persona persona) {
-        Objects.requireNonNull(persona, "persona is required");
-           deleteByIdPersona(persona.getId());           
-        this.personas.add(persona);
-    }
-    
-    public   Set<Persona> getPersonas() {
+    public Set<Persona> getPersonas() {
         return Collections.unmodifiableSet(this.personas);
     }
 
-    public   Optional<Persona> findByIdPersona(final long id) {
+    public Optional<Persona> findByIdPersona(final long id) {
         return this.personas.stream().filter(this.isIdEqualsPersona(id)).limit(1).findFirst();
     }
 
-    public    void deleteByIdPersona(final long id) {
+    public void deleteByIdPersona(final long id) {
         this.personas.removeIf(this.isIdEqualsPersona(id));
 
     }
 
-       private Predicate<Persona> isIdEqualsPersona(final long id) {
+    private Predicate<Persona> isIdEqualsPersona(final long id) {
         return p -> p.getId() == id;
     }
-    
+
 }

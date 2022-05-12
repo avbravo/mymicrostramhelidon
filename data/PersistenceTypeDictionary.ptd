@@ -445,29 +445,12 @@
 0000000000001000065 java.util.Collections$EmptyMap{}
 0000000000001000066 io.helidon.examples.microstream.storage.configuration.StorageManager{
 	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#products  ,
-	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#personas  ,
 	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#provincias,
 	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#habitantes,
+	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#personas  ,
 }
 0000000000001000067 java.util.Set{}
-0000000000001000068 io.helidon.examples.microstream.model.Habitante{
-	java.lang.String                                io.helidon.examples.microstream.model.Habitante#name     ,
-	io.helidon.examples.microstream.model.Provincia io.helidon.examples.microstream.model.Habitante#provincia,
-	java.util.List                                  io.helidon.examples.microstream.model.Habitante#personas ,
-	long                                            io.helidon.examples.microstream.model.Habitante#id       ,
-}
-0000000000001000069 io.helidon.examples.microstream.model.Provincia{
-	java.lang.String io.helidon.examples.microstream.model.Provincia#name,
-	long             io.helidon.examples.microstream.model.Provincia#id  ,
-}
-0000000000001000070 java.util.List{}
-0000000000001000071 io.helidon.examples.microstream.model.Persona{
+0000000000001000068 io.helidon.examples.microstream.model.Persona{
 	java.lang.String io.helidon.examples.microstream.model.Persona#name,
 	long             io.helidon.examples.microstream.model.Persona#id  ,
-}
-0000000000001000072 io.helidon.examples.microstream.storage.configuration.StorageManager{
-	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#products  ,
-	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#provincias,
-	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#habitantes,
-	java.util.Set io.helidon.examples.microstream.storage.configuration.StorageManager#personas  ,
 }
