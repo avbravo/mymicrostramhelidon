@@ -22,7 +22,7 @@ package io.helidon.examples.microstream.repository;
  */
 
 import io.helidon.examples.microstream.model.Habitante;
-import io.helidon.examples.microstream.storage.HabitanteStorage;
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -39,7 +39,7 @@ public class HabitanteRepositoryStorage implements HabitanteRepository
 	private static final Logger LOGGER = Logger.getLogger(HabitanteRepositoryStorage.class.getName());
 	
 	@Inject
-	private HabitanteStorage   storage;
+	private StorageManager   storage;
 	
 	@Override
 	public Collection<Habitante> getAll()
@@ -66,7 +66,7 @@ public class HabitanteRepositoryStorage implements HabitanteRepository
 	public Optional<Habitante> findById(final long id)
 	{
 		LOGGER.info("Finding the item by id: " + id);
-		return this.storage.findById(id);
+		return this.storage.findByIdHabitante(id);
 	}
 	
 	@Override

@@ -22,7 +22,7 @@ package io.helidon.examples.microstream.repository;
  */
 
 import io.helidon.examples.microstream.model.Product;
-import io.helidon.examples.microstream.storage.ProductsStorage;
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -39,26 +39,26 @@ public class ProductRepositoryStorage implements ProductRepository
 	private static final Logger LOGGER = Logger.getLogger(ProductRepositoryStorage.class.getName());
 	
 	@Inject
-	private ProductsStorage           inventory;
+	private StorageManager   storage;
 	
 	@Override
 	public Collection<Product> getAll()
 	{
-		return this.inventory.getProducts();
+		return this.storage.getProducts();
 	}
 	
 	@Override
 	@Store
 	public Product save(final Product item)
 	{
-		this.inventory.add(item);
+		this.storage.add(item);
 		return item;
 	}
 	@Override
 	@Store
 	public Product update(final Product item)
 	{
-		this.inventory.add(item);
+		this.storage.add(item);
 		return item;
 	}
 	
@@ -66,13 +66,13 @@ public class ProductRepositoryStorage implements ProductRepository
 	public Optional<Product> findById(final long id)
 	{
 		LOGGER.info("Finding the item by id: " + id);
-		return this.inventory.findById(id);
+		return this.storage.findById(id);
 	}
 	
 	@Override
 	@Store
 	public void deleteById(final long id)
 	{
-		this.inventory.deleteById(id);
+		this.storage.deleteById(id);
 	}
 }

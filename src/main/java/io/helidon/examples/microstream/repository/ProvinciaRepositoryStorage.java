@@ -22,7 +22,7 @@ package io.helidon.examples.microstream.repository;
  */
 
 import io.helidon.examples.microstream.model.Provincia;
-import io.helidon.examples.microstream.storage.ProvinciaStorage;
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -39,7 +39,7 @@ public class ProvinciaRepositoryStorage implements ProvinciaRepository
 	private static final Logger LOGGER = Logger.getLogger(ProvinciaRepositoryStorage.class.getName());
 	
 	@Inject
-	private ProvinciaStorage   storage;
+	private StorageManager   storage;
 	
 	@Override
 	public Collection<Provincia> getAll()
@@ -66,7 +66,7 @@ public class ProvinciaRepositoryStorage implements ProvinciaRepository
 	public Optional<Provincia> findById(final long id)
 	{
 		LOGGER.info("Finding the item by id: " + id);
-		return this.storage.findById(id);
+		return this.storage.findByIdProvincia(id);
 	}
 	
 	@Override

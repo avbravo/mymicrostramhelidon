@@ -5,7 +5,7 @@
 package io.helidon.examples.microstream.repository;
 
 import io.helidon.examples.microstream.model.Persona;
-import io.helidon.examples.microstream.storage.PersonaStorage;
+import io.helidon.examples.microstream.storage.configuration.StorageManager;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -18,44 +18,42 @@ import one.microstream.integrations.cdi.types.Store;
  * @author avbravo
  */
 @ApplicationScoped
-public class PersonaRepositoryStorage implements PersonaRepository{
-private static final Logger LOGGER = Logger.getLogger(PersonaRepositoryStorage.class.getName());
-	
+public class PersonaRepositoryStorage implements PersonaRepository {
+
+    private static final Logger LOGGER = Logger.getLogger(PersonaRepositoryStorage.class.getName());
+
     @Inject
-    PersonaStorage personaStorage;
-   @Override
-	public Collection<Persona> getAll()
-	{
-		return this.personaStorage.getPersonas();
-	}
-	
-	@Override
-	@Store
-	public Persona save(final Persona item)
-	{
-		this.personaStorage.add(item);
-		return item;
-	}
-	@Override
-	@Store
-	public Persona update(final Persona item)
-	{
-		this.personaStorage.add(item);
-		return item;
-	}
-	
-	@Override
-	public Optional<Persona> findById(final long id)
-	{
-		LOGGER.info("Finding the item by id: " + id);
-		return this.personaStorage.findById(id);
-	}
-	
-	@Override
-	@Store
-	public void deleteById(final long id)
-	{
-		this.personaStorage.deleteById(id);
-	}
-    
+    private StorageManager storage;
+
+    @Override
+    public Collection<Persona> getAll() {
+        return this.storage.getPersonas();
+    }
+
+    @Override
+    @Store
+    public Persona save(final Persona item) {
+        this.storage.add(item);
+        return item;
+    }
+
+    @Override
+    @Store
+    public Persona update(final Persona item) {
+        this.storage.add(item);
+        return item;
+    }
+
+    @Override
+    public Optional<Persona> findById(final long id) {
+        LOGGER.info("Finding the item by id: " + id);
+        return this.storage.findByIdPersona(id);
+    }
+
+    @Override
+    @Store
+    public void deleteById(final long id) {
+        this.storage.deleteById(id);
+    }
+
 }
